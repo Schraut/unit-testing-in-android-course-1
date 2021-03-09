@@ -17,13 +17,23 @@ public class NegativeNumberValidatorTest {
     public void setup() {
         SUT = new NegativeNumberValidator();
     }
-    // After annotation is used on a method containing java code to run after each
-    // test case
 
     @Test
-    public void test1() {
+    public void testNegativeNumber() {
         boolean result = SUT.isNegative(-1);
         Assert.assertThat(result, is(true));
+    }
+
+    @Test
+    public void testZero() {
+        boolean result = SUT.isNegative(0);
+        Assert.assertThat(result, is(false));
+    }
+
+    @Test
+    public void testPositiveNumber() {
+        boolean result = SUT.isNegative(1);
+        Assert.assertThat(result, is(false));
     }
 
 }
